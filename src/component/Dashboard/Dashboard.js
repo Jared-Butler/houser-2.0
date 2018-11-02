@@ -14,7 +14,7 @@ class Dashboard extends Component {
         this.componentDidMount = () => {axios.get('/api/properties')
         .then( res => {this.setState({ houses: res.data })} )}
         
-        
+        this.handleDelete = this.handleDelete.bind(this);
          
     }
 
@@ -22,7 +22,7 @@ class Dashboard extends Component {
     
     
     
-      handleDelete = (address) => {
+      handleDelete (address) {
         //  console.log(address);
          axios.delete(`/api/delete/${address}`)
          .then( this.componentDidMount())
